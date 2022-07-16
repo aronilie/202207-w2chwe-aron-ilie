@@ -2,16 +2,14 @@ import Bacterium from "./Bacterium.js";
 
 class Board {
   columns;
-
   rows;
-
   boxes;
 
   constructor(columns, rows) {
     this.columns = columns;
     this.rows = rows;
 
-    this.boxes = this.createBoxes;
+    this.boxes = this.createBoxes();
   }
 
   createBoxes() {
@@ -26,7 +24,7 @@ class Board {
     let number;
     this.number = Math.random();
 
-    if (number === 0) {
+    if (number > 0.5) {
       return true;
     }
     return false;
