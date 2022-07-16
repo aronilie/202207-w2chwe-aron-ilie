@@ -1,13 +1,6 @@
-import Box from "./classes/Bacterium.js";
+import Box from "./classes/Box.js";
+import Board from "./classes/Board";
 
-const totalBoxes = 9;
-let i = 0;
-const grid = [];
-grid[0] = 1;
+const board = new Board(5, 5);
 
-for (i = 0; i <= totalBoxes; i++) {
-  grid[i] = new Box(i);
-}
-
-console.log("hola");
-console.log(grid[1].id);
+console.log(board);
