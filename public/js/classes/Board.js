@@ -4,6 +4,7 @@ class Board {
   columns;
   rows;
   boxes;
+  aliveBacteriums;
 
   constructor(columns, rows) {
     this.columns = columns;
@@ -13,22 +14,22 @@ class Board {
   }
 
   createBoxes() {
-    const boxes = new Array(this.columns).fill(
-      new Array(this.rows).fill(new Bacterium(this.getRandomStatus()))
-    );
+    const boxes = new Array(this.columns);
+
+    for (let i = 0; i < boxes.length; i++) {
+      boxes[i] = new Array(this.rows);
+    }
+
+    for (let i = 0; i < boxes.length; i++) {
+      for (let j = 0; j < boxes.length; j++) {
+        boxes[i][j] = new Bacterium(this.getRandomStatus());
+      }
+    }
 
     return boxes;
   }
 
-  getRandomStatus() {
-    let number;
-    this.number = Math.random();
-
-    if (number > 0.5) {
-      return true;
-    }
-    return false;
-  }
+  getRandomStatus = () => Math.random() > 0.5;
 }
 
 export default Board;
